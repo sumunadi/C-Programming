@@ -1,0 +1,41 @@
+//Workshop 6 Library Functions
+
+#include <stdio.h> 
+#include <stdlib.h>
+#include <time.h>
+
+int main (void)
+{	
+	int sought, dice1, dice2, mindice = 1, maxdice = 6, counter = 0;
+	
+	//to output random values on each run
+	srand(time(NULL));
+	//header
+	printf("\nGame of Dice\n");
+	printf("============\n");
+	//user inputs total dice total
+	printf("Predict your dice throw: ");
+	scanf("%d", &sought);
+	
+	// Loops for user input if value entered > 12
+	while (sought > 12){
+		printf("**Invalid Input! Try Again!**\n");
+		printf("Predict your dice throw: ");
+		scanf("%d", &sought);
+	}
+	//keeps looping program until sought(entered amount) = random dice total
+	while (sought != dice1 + dice2){
+		//counts the amount of times the program looped
+		counter++;
+		dice2 = mindice + rand() % (maxdice + 1 - mindice);
+		dice1 = mindice + rand() % (maxdice + 1 - mindice);
+		printf("Throw %d is %d + %d\n", counter, dice1, dice2);
+		} 
+	//state how many times it took for sought = dice1 + dice2
+
+	
+	printf("You got your prediction in %d throws", counter);
+			
+	
+return 0;
+}
