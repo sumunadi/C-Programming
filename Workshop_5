@@ -1,0 +1,63 @@
+// functions with pointers COMPLETE
+
+
+#include <stdio.h>
+
+void simplify (int *numerator,int *denominator);
+int main (void)
+{
+	int num, denom;
+	int numerator, denominator; 
+	
+	
+	// header
+	printf("Fraction Simplifier \n=================\n");
+	
+	// Prompt user for num and denom
+	do {
+		printf("Numerator:  ");
+		scanf("%d", &num);
+		if (num <= 0)
+				printf("NEGATIVE\n");
+	} while (num <= 0);
+
+	do {
+		printf("Denominator:   ");
+		scanf("%d", &denom);
+		if (denom <= 0);
+				printf("NEGATIVE\n");
+	} while (denom <= 0);
+		
+	numerator = num;
+	denominator = denom;	
+	
+	simplify (&numerator, &denominator);
+	
+	printf("\n%d / %d = %d / %d",num, denom, numerator, denominator);
+
+	
+return 0;
+}
+
+void simplify (int *numerator, int *denominator){
+
+	int num, denom, gcd = 0;
+	num = *numerator;
+	denom = *denominator;
+		
+	do{
+		gcd = num % denom;
+		num = denom;
+		denom = gcd % num;
+	}while(gcd != 0);
+	*numerator = *numerator / num;
+	*denominator = *denominator / num;
+}
+		
+		  
+		
+	
+	
+	
+	
+	
