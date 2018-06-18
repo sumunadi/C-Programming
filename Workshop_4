@@ -1,0 +1,59 @@
+// workshop 4
+#include <stdio.h>
+float formula (int principal, float annual_rate, int years); 
+int main (void)
+{
+	int years, principal;
+	float annual_rate, future;
+	// Program Header
+	printf("Investment Calculator\n");
+	printf("=====================\n");
+	
+		 //Prompt user for Principal, Annual Rate and # of years
+			printf("Principal Value:  ");
+			scanf("%d", &principal);
+			
+			printf("Annual Rate:  ");
+			scanf("%f", &annual_rate);
+					
+			printf("No of Years:  ");
+			scanf("%d", &years);	
+			
+			printf("\n\n");
+			
+			// call formula module
+			future = formula(principal, annual_rate, years);
+			
+			//return to main function to print out output
+			printf("The future value is $%.2f", future);
+		
+return 0;
+}
+			// formula to calculate future value 
+			float formula (int principal, float annual_rate, int years)
+			{	
+			float rate, future_value, base, result;
+				
+			base = ( 1 + annual_rate);
+				
+				int i;
+				result = 1;
+				
+				for (i = 0; i < years;  i++)
+					result = result * base; 
+				
+				future_value = principal * result;
+
+				return future_value;
+	        }
+	
+
+
+
+
+
+
+
+
+
+
