@@ -1,0 +1,134 @@
+//workshop 3
+
+#include <stdio.h>
+
+int main (void){
+
+	int SIN;
+	int one, two, three, four, five, six, seven, eight, nine, digit1, digit2, digit3, digit4, digit5, digit6, digit7, digit8, digit9;
+	int digit8sum, digit6sum, digit4sum, digit2sum, check_digit;
+	
+	// loop to repeat program as long SIN > 0
+	
+	printf("***SIN VALIDATOR***\n");
+	
+	do {
+	
+	printf("Please enter your SIN number (0 to quit): ");
+	scanf("%d", &SIN);
+	// Enter Value = 0 to terminate program
+	if (SIN == 0)
+	{
+		printf("Shutting down SIN validator");
+	}
+	else
+	{
+	
+	
+//Defining each digit as a variable
+	
+	nine = SIN % 10;
+	digit9 = nine / 1;
+	
+	eight = SIN % 100;
+	digit8 = eight / 10;
+	
+	seven = SIN % 1000;
+	digit7 = seven / 100;
+	
+	six = SIN % 10000;
+	digit6 = six / 1000;
+	
+	five = SIN % 100000;
+	digit5 = five / 10000;
+	
+	four = SIN % 1000000;
+	digit4 = four / 100000;
+	
+	three = SIN % 10000000;
+	digit3 = three / 1000000;
+	
+	two = SIN % 100000000;
+	digit2 = two / 10000000;
+	
+	one = SIN % 1000000000;
+	digit1 = one / 100000000;
+	
+
+// Add number left of digit 9 and each second digit. ADD BY ITSELF
+	digit8sum = digit8 + digit8;
+	digit6sum = digit6 + digit6;
+	digit4sum = digit4 + digit4;
+	digit2sum = digit2 + digit2;
+	
+//Specify each digit in even position	
+	int odd_sum = digit1 +digit3 + digit5 + digit7;
+	int sum8a, sum8b, sum6a, sum6b, sum4a, sum4b, sum2a, sum2b, even_sum, highest_divisible, total_sum; 
+	
+	sum8a = digit8sum % 100;
+	sum8a = sum8a / 10;
+	
+	sum8b = digit8sum % 10;
+	sum8b = sum8b / 1;
+	
+	sum6a = digit6sum % 100;
+	sum6a = sum6a / 10;
+	
+	sum6b = digit6sum % 10;
+	sum6b = sum6b / 1;
+	
+	sum4a = digit4sum % 100;
+	sum4a = sum4a / 10;
+	
+	sum4b = digit4sum % 10;
+	sum4b = sum4b / 1;
+	
+	sum2a = digit2sum % 100;
+	sum2a = sum2a / 10;
+	
+	sum2b = digit2sum % 10;
+	sum2b = sum2b / 1;
+	
+// Calculations
+	
+	even_sum = sum8a+sum8b+sum6a+sum6b+sum4a+sum4b+sum2a+sum2b;
+	total_sum = even_sum + odd_sum;
+	highest_divisible = ((total_sum / 10) + 1) * 10;
+	check_digit = highest_divisible - total_sum;
+	
+	
+			if ( check_digit == digit9) {
+	
+			printf("This is a valid SIN number\n");
+	
+			}
+	
+			else {
+				
+			printf("INVALID SIN NUMBER!\n");
+				
+			}
+	
+
+	}
+	}
+	while (SIN > 0);
+	
+	return 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
