@@ -1,0 +1,56 @@
+#include <stdio.h>
+//	Salah Munadi WORKSHOP 2
+
+/*  prompts the user for the number of items purchased
+	accepts the number of items purchased
+	prompts the user for the unit price of each item
+	accepts the unit price of each item
+	calculates the total purchase price, including HST
+	outputs the total purchase price
+	prompts the user for the cash tendered
+	accepts the amount of cash tendered
+	calculates the change owed to the user
+	outputs the number of loonies in the change
+	outputs the number of cents in the change
+*/
+
+int main(void){
+	int items;
+	float HST = 0.13;
+	double purchase_price, hst_total, total_price, unit_price, cash, change;
+	int loonies, cents;
+	
+		printf("Enter the number of items:      ");
+		scanf("%d", &items);
+ 
+		printf("Enter the unit price:           ");
+		scanf("%lf",&unit_price);
+ 
+		purchase_price = unit_price * items;
+		printf("Purchase price:                 %.2lf\n",purchase_price);
+ 
+		hst_total = purchase_price * HST;
+ 
+		printf("HST (13%):                       %.2lf\n", hst_total);
+ 
+		total_price = hst_total + purchase_price;
+ 
+		printf("Total price:                    %.2lf\n\n",total_price);
+  
+		printf("Cash tendered:                  ");
+		scanf("%lf", &cash);
+ 
+		change = cash - total_price;
+		
+		loonies = change;
+		cents = (change - loonies) * 100;
+		
+		printf("Change loonies:                 %2.d\n",loonies);
+		printf("Change cents:                   %d\n",cents);
+		
+		
+		
+ 
+return 0;
+ 
+}
