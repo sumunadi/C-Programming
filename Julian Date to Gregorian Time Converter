@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int main(void){
+
+	double jdn = 0;
+
+	printf("Please enter a Julian Day Number greater than 2299160:  ");
+	scanf("%lf", &jdn);
+	if ( jdn <= 2299160)
+	{
+	printf("ERROR!\nJulian Day Number is less than 2299160.");
+    }
+	else 
+	{
+	
+	double time;
+	int jdnint, hr, min, sec;
+    long lc, kc, nc, ic, jc;
+	int day, month, year;
+	
+	//covert Julian date numbers in to Gregorian date
+	
+	lc = jdn + 68569;
+	nc = ((4 * lc) / 146097);
+	lc = lc - ((146097 * nc + 3) / 4);
+	ic = ((4000 * (lc + 1)) / 1461001);
+	lc = lc - ((1461 * ic) / 4) + 31;
+	jc = ((80 * lc) / 2447);
+	day = lc - ((2447 * jc) / 80);
+	lc = (jc / 11);
+	month = jc + 2 - 12 * lc;
+	year = 100 * (nc - 49) + ic + lc;
+
+	//convert Julian date numbers in to Gregorian time
+	
+	jdnint = jdn;
+	time = (jdn - jdnint) * 24;
+	hr = time;
+	time = ((jdn - jdnint) * 24) - hr;
+	min = time * 60;
+	time = (time * 60) - min;
+	sec = time * 60;
+	
+	
+	char november, december;
+	
+	if (month == 11)
+	{
+	char month = november;
+	}
+	
+	
+	printf("%lf JD is %d %c %d @ %d:%d:%.2d P.M\n", jdn, day, month, year, hr+12, min, sec);
+	
+	
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
